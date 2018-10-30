@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "List Student";
+}
+@model IEnumerable<SiinGroup.Models.Student>
+
+<div class="panel panel-primary" style="margin-top:10px;">
+    <div class="panel-heading">List Student</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>RollNumber</th>
+                    <th>Name</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RollNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td><a href="/Student/Edit?id=@item.Id">Edit</a> | <a href="/Student/Delete?id=@item.Id">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
