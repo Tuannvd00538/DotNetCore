@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function deleteStudent(id) {
+    if (confirm("Bạn có chắc chắn muốn xóa ?")) {
+        $.ajax({
+            url: '/Student/Delete?id=' + id,
+            type: 'DELETE',
+            success: function (response) {
+                alert('Delete success!');
+                $('#' + id).remove();
+            },
+            error: function (err) {
+                alert('Delete error!');
+            }
+        });
+    }
+}

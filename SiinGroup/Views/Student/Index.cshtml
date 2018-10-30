@@ -22,11 +22,11 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr id="@Html.DisplayFor(modelItem => item.Id)">
                         <td>@Html.DisplayFor(modelItem => item.Id)</td>
                         <td>@Html.DisplayFor(modelItem => item.RollNumber)</td>
                         <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                        <td><a href="/Student/Edit?id=@item.Id">Edit</a> | <a href="/Student/Delete?id=@item.Id" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Delete</a></td>
+                        <td><a href="/Student/Edit?id=@item.Id">Edit</a> | <a href="javascript:deleteStudent(@Html.DisplayFor(modelItem => item.Id))">Delete</a></td>
                     </tr>
                 }
             </tbody>

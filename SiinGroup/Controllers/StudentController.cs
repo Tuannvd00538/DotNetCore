@@ -51,6 +51,7 @@ namespace SiinGroup.Controllers
             return View(item);
         }
         
+        [HttpDelete]
         public IActionResult Delete()
         {
             _context.Remove(_context.Students.Single(a => a.Id == Int32.Parse(HttpContext.Request.Query["id"].ToString())));
