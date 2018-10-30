@@ -30,6 +30,7 @@ namespace SiinGroup.Controllers
         {
             _context.Students.Add(student);
             _context.SaveChanges();
+            @TempData["message"] = "Save success!";
             return RedirectToAction(nameof(Index));
         }
 
@@ -40,6 +41,7 @@ namespace SiinGroup.Controllers
             author.Name = student.Name;
             author.RollNumber = student.RollNumber;
             _context.SaveChanges();
+            @TempData["message"] = "Edit student " + author.RollNumber + " success!";
             return RedirectToAction(nameof(Index));
         }
 
@@ -53,6 +55,7 @@ namespace SiinGroup.Controllers
         {
             _context.Remove(_context.Students.Single(a => a.Id == Int32.Parse(HttpContext.Request.Query["id"].ToString())));
             _context.SaveChanges();
+            @TempData["message"] = "Delete success!";
             return RedirectToAction(nameof(Index));
         }
 
