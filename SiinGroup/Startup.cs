@@ -29,7 +29,7 @@ namespace SiinGroup
             });
 
             services.AddDbContext<StudentContext>(opt =>
-                opt.UseInMemoryDatabase("StudentList"));
+                opt.UseSqlServer(Configuration.GetConnectionString("SiinGroupConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
